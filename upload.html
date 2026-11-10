@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>글올리기 | 내 포트폴리오</title>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="upload">
+
+  <div id="layout"></div>
+
+  <main class="content">
+    <form class="upload" id="uploadForm" novalidate>
+      <h1 class="upload-title" id="formTitle">글올리기</h1>
+
+      <div class="upload-grid">
+        <!-- 이미지 -->
+        <div>
+          <label class="dropzone" id="dropzone" for="file" tabindex="0">
+            <input type="file" id="file" accept="image/png,image/jpeg,image/webp,image/gif" hidden>
+            <div class="dz-empty" id="dzEmpty">
+              <svg viewBox="0 0 24 24" width="32" height="32" aria-hidden="true"><path d="M12 16V5m0 0l-4 4m4-4l4 4M5 19h14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <p>이미지를 끌어다 놓거나 눌러서 선택하세요</p>
+              <p class="muted">업로드 전에 가로 1200px, WebP로 자동 압축돼요</p>
+            </div>
+            <img id="preview" alt="선택한 이미지 미리보기" hidden>
+          </label>
+          <p class="muted" id="fileInfo"></p>
+        </div>
+
+        <!-- 입력 -->
+        <div class="fields">
+          <label class="field">
+            <span>제목</span>
+            <input type="text" id="title" maxlength="80" placeholder="작품 제목을 입력하세요" required>
+          </label>
+          <label class="field">
+            <span>설명</span>
+            <textarea id="desc" rows="6" maxlength="1000" placeholder="작업 내용, 사용한 도구, 기간 등을 적어 보세요"></textarea>
+          </label>
+          <label class="field">
+            <span>태그</span>
+            <input type="text" id="tags" placeholder="쉼표로 구분 (예: 로고, 브랜딩)">
+          </label>
+
+          <p class="error" id="formError" role="alert" hidden></p>
+
+          <div class="form-actions">
+            <a href="index.html" class="btn btn-ghost btn-link">취소</a>
+            <button type="submit" class="btn btn-primary" id="submitBtn">올리기</button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.118.0/dist/umd/supabase.js"></script>
+  <script src="js/config.js"></script>
+  <script src="js/supabase.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/store.js"></script>
+  <script src="js/include.js"></script>
+  <script src="js/upload.js"></script>
+</body>
+</html>

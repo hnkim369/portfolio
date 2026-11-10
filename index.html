@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>홈 | 내 포트폴리오</title>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="home">
+
+  <!-- layout.html 이 여기로 불러와집니다 -->
+  <div id="layout"></div>
+
+  <main class="content">
+    <p class="status" id="status" role="status" hidden></p>
+    <div class="masonry" id="feed" aria-live="polite"></div>
+    <div class="empty" id="empty" hidden>
+      <p>아직 올린 글이 없어요.</p>
+      <p class="muted">‘글올리기’에서 첫 작품을 올려 보세요.</p>
+    </div>
+  </main>
+
+  <!-- 게시글 상세 -->
+  <dialog id="pinModal" class="modal modal-lg" aria-labelledby="pinTitle">
+    <button type="button" class="modal-close" id="pinClose" aria-label="닫기">✕</button>
+    <div class="pin-detail">
+      <img id="pinImg" alt="">
+      <div class="pin-detail-body">
+        <h2 id="pinTitle"></h2>
+        <p id="pinDesc" class="pin-desc"></p>
+        <p id="pinTags" class="pin-tags"></p>
+        <p id="pinDate" class="muted"></p>
+        <div class="pin-actions admin-only">
+          <button type="button" class="btn btn-ghost" id="pinEdit">수정</button>
+          <button type="button" class="btn btn-danger" id="pinDelete">삭제</button>
+        </div>
+      </div>
+    </div>
+  </dialog>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.118.0/dist/umd/supabase.js"></script>
+  <script src="js/config.js"></script>
+  <script src="js/supabase.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/store.js"></script>
+  <script src="js/include.js"></script>
+  <script src="js/home.js"></script>
+</body>
+</html>
