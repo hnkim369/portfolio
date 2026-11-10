@@ -46,12 +46,12 @@ on conflict (id) do nothing;
 -- 4) 스토리지 RLS: 업로드/수정/삭제는 관리자만 (읽기는 공개 버킷이라 URL로 누구나 가능)
 create policy "images_admin_insert" on storage.objects
   for insert to authenticated
-  with check (bucket_id = 'images' and (auth.jwt() ->> 'email') = 'me@example.com');
+  with check (bucket_id = 'images' and (auth.jwt() ->> 'email') = 'hnkim369@gmail.com');
 
 create policy "images_admin_update" on storage.objects
   for update to authenticated
-  using (bucket_id = 'images' and (auth.jwt() ->> 'email') = 'me@example.com');
+  using (bucket_id = 'images' and (auth.jwt() ->> 'email') = 'hnkim369@gmail.com');
 
 create policy "images_admin_delete" on storage.objects
   for delete to authenticated
-  using (bucket_id = 'images' and (auth.jwt() ->> 'email') = 'me@example.com');
+  using (bucket_id = 'images' and (auth.jwt() ->> 'email') = 'hnkim369@gmail.com');
