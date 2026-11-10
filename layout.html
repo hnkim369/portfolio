@@ -1,0 +1,46 @@
+<!-- 공통 레이아웃 (include 파일): 사이드바 / 상단 검색바 / 모바일 하단 메뉴 / 관리자 로그인 모달 -->
+
+<!-- 데스크톱: 좌측 사이드바 / 모바일: 하단 탭바 -->
+<nav class="sidebar" aria-label="주 메뉴">
+  <a href="index.html" class="logo" aria-label="포트폴리오 홈">
+    <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="currentColor"/><path d="M9 17V7h3.2a3 3 0 010 6H9" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg>
+  </a>
+
+  <a href="index.html" class="nav-item" data-nav="home" title="홈">
+    <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M4 10.5L12 4l8 6.5V20a1 1 0 01-1 1h-4.5v-6h-5v6H5a1 1 0 01-1-1z" fill="currentColor"/></svg>
+    <span class="nav-label">홈</span>
+  </a>
+
+  <a href="search.html" class="nav-item" data-nav="search" title="검색">
+    <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5" fill="none" stroke="currentColor" stroke-width="2.4"/><path d="M15.5 15.5L21 21" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg>
+    <span class="nav-label">검색</span>
+  </a>
+
+  <a href="upload.html" class="nav-item" data-nav="upload" data-requires-admin title="글올리기">
+    <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/></svg>
+    <span class="nav-label">글올리기</span>
+  </a>
+</nav>
+
+<!-- 상단 검색바 -->
+<header class="topbar">
+  <form class="searchbar" action="search.html" method="get" role="search">
+    <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5" fill="none" stroke="currentColor" stroke-width="2.4"/><path d="M15.5 15.5L21 21" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg>
+    <input type="search" name="q" placeholder="검색" aria-label="검색어 입력" autocomplete="off">
+  </form>
+  <button type="button" class="btn-logout admin-only" id="logoutBtn">관리자 로그아웃</button>
+</header>
+
+<!-- 관리자 로그인 모달 -->
+<dialog id="loginModal" class="modal modal-sm" aria-labelledby="loginTitle">
+  <form method="dialog" class="login-form" id="loginForm">
+    <h2 id="loginTitle">관리자 확인</h2>
+    <p class="muted">글을 올리려면 비밀번호가 필요해요.</p>
+    <input type="password" id="loginPw" placeholder="비밀번호" autocomplete="current-password" required>
+    <p class="error" id="loginError" role="alert" hidden>비밀번호가 맞지 않아요. 다시 입력해 주세요.</p>
+    <div class="modal-actions">
+      <button type="button" class="btn btn-ghost" id="loginCancel">취소</button>
+      <button type="submit" class="btn btn-primary">확인</button>
+    </div>
+  </form>
+</dialog>
